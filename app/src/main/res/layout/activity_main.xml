@@ -23,7 +23,7 @@
             android:id="@+id/btnGenerate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="INSERT" />
+            android:text="GENERATE" />
     </LinearLayout>
 
     <Button
