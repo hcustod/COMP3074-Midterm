@@ -10,9 +10,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Midterm_henrique_custodio">
+        android:theme="@style/Theme.Midterm_henrique_custodio"
+        tools:targetApi="31">
+
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.theme.SecondActivity"
+            android:exported="false"
+            android:label="History"
+            android:theme="@style/Theme.Midterm_henrique_custodio" />
+
+        <activity
+            android:name=".ui.theme.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Midterm_henrique_custodio">
@@ -22,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

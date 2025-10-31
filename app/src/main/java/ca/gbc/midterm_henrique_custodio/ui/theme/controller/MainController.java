@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.content.DialogInterface;
 
+import ca.gbc.midterm_henrique_custodio.ui.theme.SecondActivity;
 import ca.gbc.midterm_henrique_custodio.ui.theme.cache.DataCache;
 import androidx.appcompat.app.AlertDialog;
 
@@ -29,6 +30,7 @@ public class MainController {
 
         if (numText.isEmpty()) {
             Toast.makeText(context, "Enter a number", Toast.LENGTH_SHORT).show();
+            return;
         }
 
         int num;
@@ -37,9 +39,11 @@ public class MainController {
             num = Integer.parseInt(numText);
         } catch (NumberFormatException e) {
             Toast.makeText(context, "Invalid Number", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-        // gen table here
+        generateTable(num);
+        tableAdapter.notifyDataSetChanged();
     }
 
     public void generateTable(int num) {
@@ -51,8 +55,7 @@ public class MainController {
         }
 
         if (!DataCache.history.contains(num)) {
-            // Fix needed for int casting to string
-            DataCache.history.add(num);
+            DataCache.history.add(String.valueOf(num));
         }
     }
 
