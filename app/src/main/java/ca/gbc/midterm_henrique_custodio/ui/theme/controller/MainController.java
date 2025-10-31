@@ -88,32 +88,4 @@ public class MainController {
         context.startActivity(intent);
 
     }
-
-    public void onClearAllRequested() {
-
-        if (DataCache.currentTable.isEmpty()) {
-            Toast.makeText(context, "Nothing to clear", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Clear All");
-        builder.setMessage("Delete ALL rows?");
-
-        builder.setPositiveButton("Clear", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                DataCache.currentTable.clear();
-                tableAdapter.notifyDataSetChanged();
-
-                Toast.makeText(context,
-                        "All rows cleared",
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        builder.setNegativeButton("Cancel", null);
-        builder.show();
-    }
 }

@@ -64,21 +64,4 @@ public class MainActivity extends AppCompatActivity {
         mainListener.bind(btnGenerate, btnHistory, listTable, controller);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0, 1, 0, "Clear All");
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == 1) {
-            controller.onClearAllRequested();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
-
 }

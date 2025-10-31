@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.ArrayList;
+import android.widget.Button;
 
 import ca.gbc.midterm_henrique_custodio.ui.theme.cache.DataCache;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import ca.gbc.midterm_henrique_custodio.R;
 public class SecondActivity extends AppCompatActivity {
 
     private ListView listHistory;
+    private Button backToMain;
     private ArrayAdapter<String> historyAdapter;
 
     @Override
@@ -20,11 +22,7 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("History");
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
-
+        backToMain = findViewById(R.id.backToMain);
         listHistory = findViewById(R.id.listHistory);
 
         ArrayList<String> historyStrings = new ArrayList<>();
@@ -39,6 +37,11 @@ public class SecondActivity extends AppCompatActivity {
         );
 
         listHistory.setAdapter(historyAdapter);
+
+        // Should probably be its own class...
+        backToMain.setOnClickListener(v -> {
+            finish();
+        });
     }
 
     @Override
